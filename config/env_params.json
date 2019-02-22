@@ -1,0 +1,9 @@
+{
+    "dev": {
+        "PORTDB": "27017",
+        "HOSTDB": "localhost",
+        "USERDB": "",
+        "PASSDB": "",
+        "DBNAME": "ticketSimpleDB"
+    }
+}

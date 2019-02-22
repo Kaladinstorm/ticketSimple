@@ -4,10 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const ticketRouter = require('./routes/tickets.routes');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const envVars = require('./config/env_params');
+const db = require('./config/db');
+
+
 var app = express();
+
+console.log(db);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,6 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', ticketRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
