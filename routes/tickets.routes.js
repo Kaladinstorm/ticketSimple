@@ -21,8 +21,9 @@ router.get('/ticket/', (req, res, next) => {
 /**
  * Get a ticket by ID
  */
-router.get('/ticket/:id', (req, res, next) => {
-    ticketCtlr.getTicket(req.params.id).then((ticket) => {
+router.post('/ticket/search/', (req, res, next) => {
+
+    ticketCtlr.getTicket(req.body).then((ticket) => {
         resTemplate(200, ticket, res);
     }).catch((error) => {
         resTemplate(500, error, res);

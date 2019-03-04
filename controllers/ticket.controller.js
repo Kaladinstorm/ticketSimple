@@ -1,4 +1,5 @@
 const Ticket = require('../models/ticket.models');
+const searchEngine = require('../utils/search-engine');
 
 
 module.exports.listTickets = async () => {
@@ -13,8 +14,10 @@ module.exports.listTickets = async () => {
     }) 
 }
 
-module.exports.getTicket = async (id) => {
-    return "ID: " + id;
+module.exports.getTicket = async (query) => {
+
+    const res = await searchEngine.buscarBy(query);
+    return res;
 }
 
 module.exports.addTicket = async (ticket) => {
